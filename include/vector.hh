@@ -3,7 +3,7 @@
 
 #include "size.hh"
 #include <iostream>
-
+#include <cmath>
 template <int SIZE>
 class Vector {
 
