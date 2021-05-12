@@ -166,3 +166,47 @@ TEST_CASE("macierz mnożenie * wektor")
     wektor1 = macierz * wektor2;
     CHECK(wektor1 == wektor2);
 }
+/****************************CUBOID****************************/
+
+TEST_CASE("konstruktor parametryczny")
+{
+    double tab1[3]={0,0,0};
+    double tab2[3]={10,0,0};
+    double tab3[3]={0,20,0};
+    double tab4[3]={10,20,0};
+
+    double tab5[3]={0,20,30};
+    double tab6[3]={10,20,30};
+    double tab7[3]={0,0,30};
+    double tab8[3]={10,0,30};
+
+    Vector3D wektor(tab1), wektor1(tab2), wektor2(tab3), wektor3(tab4);
+    Vector3D wektor4(tab5), wektor5(tab6),wektor6(tab7),wektor7(tab8)  ;
+    double h = 10, w = 20 , p=30;
+    Cuboid Pr(wektor, h, w ,p);
+
+    CHECK(Pr[0] == wektor);
+    CHECK(Pr[1] == wektor1);
+    CHECK(Pr[2] == wektor2);
+    CHECK(Pr[3] == wektor3);
+    CHECK(Pr[4] == wektor4);
+    CHECK(Pr[5] == wektor5);
+    CHECK(Pr[6] == wektor6);
+    CHECK(Pr[7] == wektor7);
+     
+}
+
+ TEST_CASE("konstruktor bezparametryczny")
+{
+
+    Cuboid Pr;
+    Vector3D  wektor;
+    CHECK(Pr[0] == wektor);
+    CHECK(Pr[1] == wektor);
+    CHECK(Pr[2] == wektor);
+    CHECK(Pr[3] == wektor);
+    CHECK(Pr[4] == wektor);
+    CHECK(Pr[5] == wektor);
+    CHECK(Pr[6] == wektor);
+    CHECK(Pr[7] == wektor);
+}
