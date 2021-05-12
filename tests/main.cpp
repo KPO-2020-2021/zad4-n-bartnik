@@ -5,21 +5,19 @@
 #include "../include/matrix.hh"
 #include "../include/size.hh"
 
-
 TEST_CASE("konstruktor parametryczny")
 {
-    double a = 1.0, b = 2.0, c=3.0 ;
-    Vector3D wektor  /*( a, b )*/  ;
+    double a = 1.0, b = 2.0, c = 3.0;
+    Vector3D wektor /*( a, b )*/;
 
     wektor[0] = a;
-    wektor[1] =b;
-    wektor[2] =c;
+    wektor[1] = b;
+    wektor[2] = c;
 
     CHECK(wektor[0] == 1);
     CHECK(wektor[1] == 2);
     CHECK(wektor[2] == 3);
 }
-
 
 TEST_CASE("konstruktor bezparametryczny")
 {
@@ -33,8 +31,8 @@ TEST_CASE("konstruktor bezparametryczny")
 
 TEST_CASE("Dodawanie wektorów")
 {
-    double tab1[3]={1,2,3};
-    double tab2[3]={2,1,3};
+    double tab1[3] = {1, 2, 3};
+    double tab2[3] = {2, 1, 3};
     Vector3D wektor1(tab1);
     Vector3D wektor2(tab2);
     Vector3D wynik;
@@ -47,8 +45,8 @@ TEST_CASE("Dodawanie wektorów")
 
 TEST_CASE("Odejmowanie wektorów")
 {
-    double tab1[3]={1,2,3};
-    double tab2[3]={2,1,3};
+    double tab1[3] = {1, 2, 3};
+    double tab2[3] = {2, 1, 3};
     Vector3D wektor1(tab1);
     Vector3D wektor2(tab2);
     Vector3D wynik;
@@ -61,7 +59,7 @@ TEST_CASE("Odejmowanie wektorów")
 
 TEST_CASE("wektor * stała")
 {
-    double tab1[3]={1,2,3};
+    double tab1[3] = {1, 2, 3};
     Vector3D wektor1(tab1);
     double a = 2;
     Vector3D wynik;
@@ -74,7 +72,7 @@ TEST_CASE("wektor * stała")
 
 TEST_CASE("wektor - wyświetlanie")
 {
-    double tab1[3]={1,2,3};
+    double tab1[3] = {1, 2, 3};
     Vector3D wektor1(tab1);
     // double a[2]={1,2};
     std::ostringstream StrmWyj;
@@ -97,7 +95,7 @@ TEST_CASE("wektor - wpisywanie")
 
 TEST_CASE("operator porownania")
 {
-    double tab1[3]={1,2,3};
+    double tab1[3] = {1, 2, 3};
     Vector3D wektor1(tab1);
     Vector3D wektor2(tab1);
 
@@ -106,7 +104,7 @@ TEST_CASE("operator porownania")
 
 TEST_CASE("operator porownania")
 {
-    double tab1[3]={1,2,3};
+    double tab1[3] = {1, 2, 3};
     Vector3D wektor1(tab1);
     Vector3D wektor2(tab1);
 
@@ -130,7 +128,7 @@ TEST_CASE("operator porownania")
 TEST_CASE("konstruktor parametryczny")
 {
 
-    double tab[3][3] = {{2,2,2}, {2,2,2}};
+    double tab[3][3] = {{2, 2, 2}, {2, 2, 2}};
     Matrix3x3 macierz(tab);
 
     CHECK(macierz(0, 0) == 2);
@@ -154,11 +152,10 @@ TEST_CASE("konstruktor bezparametryczny")
     CHECK(macierz(1, 2) == 0);
 }
 
-
 TEST_CASE("macierz mnożenie * wektor")
 {
-    double tab1[3]={1,2,3};
-    double tab2[3]={0,0,0};
+    double tab1[3] = {1, 2, 3};
+    double tab2[3] = {0, 0, 0};
     Vector3D wektor1(tab1);
     Vector3D wektor2(tab2);
     Matrix3x3 macierz;
@@ -170,20 +167,20 @@ TEST_CASE("macierz mnożenie * wektor")
 
 TEST_CASE("konstruktor parametryczny")
 {
-    double tab1[3]={0,0,0};
-    double tab2[3]={10,0,0};
-    double tab3[3]={0,20,0};
-    double tab4[3]={10,20,0};
+    double tab1[3] = {0, 0, 0};
+    double tab2[3] = {10, 0, 0};
+    double tab3[3] = {0, 20, 0};
+    double tab4[3] = {10, 20, 0};
 
-    double tab5[3]={0,20,30};
-    double tab6[3]={10,20,30};
-    double tab7[3]={0,0,30};
-    double tab8[3]={10,0,30};
+    double tab5[3] = {0, 20, 30};
+    double tab6[3] = {10, 20, 30};
+    double tab7[3] = {0, 0, 30};
+    double tab8[3] = {10, 0, 30};
 
     Vector3D wektor(tab1), wektor1(tab2), wektor2(tab3), wektor3(tab4);
-    Vector3D wektor4(tab5), wektor5(tab6),wektor6(tab7),wektor7(tab8)  ;
-    double h = 10, w = 20 , p=30;
-    Cuboid Pr(wektor, h, w ,p);
+    Vector3D wektor4(tab5), wektor5(tab6), wektor6(tab7), wektor7(tab8);
+    double h = 10, w = 20, p = 30;
+    Cuboid Pr(wektor, h, w, p);
 
     CHECK(Pr[0] == wektor);
     CHECK(Pr[1] == wektor1);
@@ -193,14 +190,87 @@ TEST_CASE("konstruktor parametryczny")
     CHECK(Pr[5] == wektor5);
     CHECK(Pr[6] == wektor6);
     CHECK(Pr[7] == wektor7);
-     
 }
 
- TEST_CASE("konstruktor bezparametryczny")
+TEST_CASE("konstruktor bezparametryczny")
 {
 
     Cuboid Pr;
-    Vector3D  wektor;
+    Vector3D wektor;
+    CHECK(Pr[0] == wektor);
+    CHECK(Pr[1] == wektor);
+    CHECK(Pr[2] == wektor);
+    CHECK(Pr[3] == wektor);
+    CHECK(Pr[4] == wektor);
+    CHECK(Pr[5] == wektor);
+    CHECK(Pr[6] == wektor);
+    CHECK(Pr[7] == wektor);
+}
+
+TEST_CASE("przesuniecie o wektor")
+{
+    double tab[3] = {20, 30, 40};
+    Cuboid Pr;
+    Vector3D wektor(tab);
+    Pr = Pr + wektor;
+    CHECK(Pr[0] == wektor);
+    CHECK(Pr[1] == wektor);
+    CHECK(Pr[2] == wektor);
+    CHECK(Pr[3] == wektor);
+    CHECK(Pr[4] == wektor);
+    CHECK(Pr[5] == wektor);
+    CHECK(Pr[6] == wektor);
+    CHECK(Pr[7] == wektor);
+}
+
+TEST_CASE("obrot wokol osi OX")
+{
+
+    Cuboid Pr;
+    double kat = 90;
+    Matrix3x3 macierz;
+    macierz = macierz_obrot_x(kat) * macierz;
+    Pr.rot(macierz);
+    Vector3D wektor;
+    CHECK(Pr[0] == wektor);
+    CHECK(Pr[1] == wektor);
+    CHECK(Pr[2] == wektor);
+    CHECK(Pr[3] == wektor);
+    CHECK(Pr[4] == wektor);
+    CHECK(Pr[5] == wektor);
+    CHECK(Pr[6] == wektor);
+    CHECK(Pr[7] == wektor);
+}
+
+TEST_CASE("obrot wokol Osi OY")
+{
+
+    Cuboid Pr;
+    double kat = 90;
+    Matrix3x3 macierz;
+    macierz_obrot_y(kat);
+    macierz = macierz_obrot_x(kat) * macierz;
+    Pr.rot(macierz);
+    Vector3D wektor;
+    CHECK(Pr[0] == wektor);
+    CHECK(Pr[1] == wektor);
+    CHECK(Pr[2] == wektor);
+    CHECK(Pr[3] == wektor);
+    CHECK(Pr[4] == wektor);
+    CHECK(Pr[5] == wektor);
+    CHECK(Pr[6] == wektor);
+    CHECK(Pr[7] == wektor);
+}
+
+ TEST_CASE("obrot wokol Osi OZ")
+{
+
+    Cuboid Pr;
+    double kat = 90;
+    Matrix3x3 macierz;
+    macierz = macierz_obrot_z(kat) * macierz;
+    Pr.rot(macierz);
+    Vector3D wektor;
     CHECK(Pr[0] == wektor);
     CHECK(Pr[1] == wektor);
     CHECK(Pr[2] == wektor);
