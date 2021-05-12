@@ -125,4 +125,44 @@ TEST_CASE("operator porownania")
 //     CHECK(wynik == 0);
 // }
 
+/********************MACIERZ**********************/
 
+TEST_CASE("konstruktor parametryczny")
+{
+
+    double tab[3][3] = {{2,2,2}, {2,2,2}};
+    Matrix3x3 macierz(tab);
+
+    CHECK(macierz(0, 0) == 2);
+    CHECK(macierz(0, 1) == 2);
+    CHECK(macierz(0, 2) == 2);
+    CHECK(macierz(1, 0) == 2);
+    CHECK(macierz(1, 1) == 2);
+    CHECK(macierz(1, 2) == 2);
+}
+
+TEST_CASE("konstruktor bezparametryczny")
+{
+
+    Matrix3x3 macierz;
+
+    CHECK(macierz(0, 0) == 1);
+    CHECK(macierz(0, 1) == 0);
+    CHECK(macierz(0, 2) == 0);
+    CHECK(macierz(1, 0) == 0);
+    CHECK(macierz(1, 1) == 1);
+    CHECK(macierz(1, 2) == 0);
+}
+
+
+TEST_CASE("macierz mnożenie * wektor")
+{
+    double tab1[3]={1,2,3};
+    double tab2[3]={0,0,0};
+    Vector3D wektor1(tab1);
+    Vector3D wektor2(tab2);
+    Matrix3x3 macierz;
+
+    wektor1 = macierz * wektor2;
+    CHECK(wektor1 == wektor2);
+}
