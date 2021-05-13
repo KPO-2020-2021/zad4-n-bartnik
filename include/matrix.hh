@@ -206,13 +206,23 @@ std::ostream &operator<<(std::ostream &out, const Matrix<SIZE> &mat)
     return out;
 }
 
-/*FUnkcja oblicza dla macierzy zadany kąt (ze stopni na radiany)*/
+/*FUnkcja oblicza dla macierzy zadany kąt (ze stopni na radiany)
+Argumenty:
+kat - kat przypisany macierzy, potrzebny do obrotu
+*/
 template <int SIZE>
 Matrix<SIZE>::Matrix(double kat)
 {
     radian = kat * M_PI / 180;
 }
 
+/*Operator przeciążenia *. Mnoży macierz this i macierz dostarczoną, przypisuje
+ją do macierzy wynik.
+Argumenty:
+this - macierz, czyli pierwszy skladnik mnożenia
+macierz -  macierz mnożenia
+Zwraca:
+wymnożoną maceirz nikową (wynik)*/
 template <int SIZE>
 Matrix<SIZE> Matrix<SIZE>::operator*(Matrix<SIZE> macierz)
 {

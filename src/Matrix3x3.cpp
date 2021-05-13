@@ -1,6 +1,11 @@
 
 #include "../include/Matrix3x3.hh"
 
+/*FUnkcja obraca oś względem osi OX. Przyjmuje kąt i przelicza go na radiany, zwraca
+macierz obrotu. Dla każdego indeksu macierzy wpisuje do komórki wartości zgodnie 
+ze wzorem na obrót macirzy. Do wartości przypisanych zmiennej X przypisane jest 0 ze względu na to, że 
+ta wartość ma się nie zmieniać. Jedynie dla współrzędnych macierzy 0,0 (czyli x,x) jest przypisana wartość 1 
+zgodnie ze wzorem udostępnionym w instrukcji labolatoryjnej*/
 Matrix3x3 macierz_obrot_x(double kat){
     double rad = kat * M_PI/180;
     Matrix3x3 obrot;
@@ -17,6 +22,12 @@ Matrix3x3 macierz_obrot_x(double kat){
     obrot(2, 2) = cos(rad);
     return obrot;
 }
+
+/*FUnkcja obraca oś względem osi OY. Przyjmuje kąt i przelicza go na radiany, zwraca
+macierz obrotu. Dla każdego indeksu macierzy wpisuje do komórki wartości zgodnie 
+ze wzorem na obrót macirzy. Do wartości przypisanych zmiennej Y przypisane jest 0 ze względu na to, że 
+ta zmienna ma się nie zmieniać. Jedynie dla współrzędnych macierzy 1,1 (czyli y,y) jest przypisana wartość 1 
+zgodnie ze wzorem udostępnionym w instrukcji labolatoryjnej*/
 Matrix3x3 macierz_obrot_y(double kat)
 {
     double rad = kat * M_PI / 180;
@@ -35,6 +46,11 @@ Matrix3x3 macierz_obrot_y(double kat)
     return obrot;
 }
 
+/*FUnkcja obraca oś względem osi OZ. Przyjmuje kąt i przelicza go na radiany, zwraca
+macierz obrotu. Dla każdego indeksu macierzy wpisuje do komórki wartości zgodnie 
+ze wzorem na obrót macirzy. Do wartości przypisanych zmiennej Z przypisane jest 0 ze względu na to, że 
+ta zmienna ma się nie zmieniać. Jedynie dla współrzędnych macierzy 2,2 (czyli z,z) jest przypisana wartość 1 
+zgodnie ze wzorem udostępnionym w instrukcji labolatoryjnej*/
 Matrix3x3 macierz_obrot_z(double kat)
 {
     double rad = kat * M_PI / 180;

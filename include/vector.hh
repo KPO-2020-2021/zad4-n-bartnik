@@ -214,7 +214,13 @@ std::istream &operator>>(std::istream &in, Vector<SIZE> &tmp)
     return in;
 }
 
-/*Funkcja porównuje ze sobą dwa wektory - wektor oryginalny i wektor podany do funkcji*/
+/*Funkcja porównuje ze sobą dwa wektory - wektor oryginalny i wektor podany do funkcji
+Argumenty:
+size - wektor oryginalny
+wek - wektor podany do funkcji
+Zwraca:
+True - jeśli każda komórka wektora oryginalnego jest równa komórce wektora podanego do funckji
+Falce - jeśli chociaz jedna komórka wektora oryginalnego nei jest równa komórce wektora podanego do funckji*/
 template <int SIZE>
 bool Vector<SIZE>::operator==(Vector<SIZE> wek) const
 {
@@ -224,14 +230,16 @@ bool Vector<SIZE>::operator==(Vector<SIZE> wek) const
 
     return true;
 }
-template <int SIZE>
-double Vector<SIZE>::odleglosc(Vector<SIZE> wek)
-{     /* dY, dX - odleglosci bokow */
-    double wynik, suma=0;
-    for(int i=0; i<SIZE; i++){
-    suma += pow(this->size[i] - wek[i],2);
+
+
+// template <int SIZE>
+// double Vector<SIZE>::odleglosc(Vector<SIZE> wek)
+// {     /* dY, dX - odleglosci bokow */
+//     double wynik, suma=0;
+//     for(int i=0; i<SIZE; i++){
+//     suma += pow(this->size[i] - wek[i],2);
     
-    }
-    wynik = sqrt(suma); /* liczy pierwiastek z sumy kwadratów odległosći */
-    return wynik;
-}
+//     }
+//     wynik = sqrt(suma); /* liczy pierwiastek z sumy kwadratów odległosći */
+//     return wynik;
+// }
